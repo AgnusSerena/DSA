@@ -1,0 +1,13 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt(),t=n, s=0;
+        while (t>0){
+            int l=t%10;
+            s=(s*10)+l;
+            t/=10;
+        }
+        System.out.println(s);
+    }
+}
