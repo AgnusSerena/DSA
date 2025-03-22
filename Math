@@ -22,3 +22,52 @@ class Main {
         System.out.println(s);
     }
 }
+
+or 
+
+import java.util.Scanner;
+
+public class Main {
+
+    // Function to implement the Sieve of Eratosthenes
+    public static void sieveOfEratosthenes(int R, boolean[] isPrime) {
+        // Mark all numbers as prime initially
+        for (int i = 2; i * i <= R; i++) {
+            if (isPrime[i]) {
+                // Mark multiples of i as non-prime
+                for (int j = i * i; j <= R; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+    }
+
+    // Main function to calculate the sum of primes in the range [L, R]
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        // Read the input range L and R
+        int L = in.nextInt();
+        int R = in.nextInt();
+
+        // Create a boolean array to mark prime numbers up to R
+        boolean[] isPrime = new boolean[R + 1];
+        for (int i = 2; i <= R; i++) {
+            isPrime[i] = true;
+        }
+
+        // Apply Sieve of Eratosthenes
+        sieveOfEratosthenes(R, isPrime);
+
+        // Sum up all primes in the range [L, R]
+        int sum = 0;
+        for (int i = L; i <= R; i++) {
+            if (isPrime[i]) {
+                sum += i;
+            }
+        }
+
+        // Output the result
+        System.out.println("Sum = " + sum);
+    }
+}
