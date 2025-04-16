@@ -1,0 +1,11 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        PriorityQueue<String> qt= new PriorityQueue<String>();
+        qt.add("Java");
+        qt.add("C");
+        qt.add("C#");
+        qt.add("GO");
+        System.out.println(qt);
+    }
+}
