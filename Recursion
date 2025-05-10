@@ -1,0 +1,89 @@
+//count digits
+
+import java.util.Scanner;
+class Main {
+    public static int count(int n){
+      if (n==0){
+          return 0;
+      }
+      else{
+          return 1+count(n/10);
+      }
+    
+  }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        System.out.println(count(n));
+    }
+}
+
+// count Zeros
+
+import java.util.*;
+class Main {
+    public static int zero(int n){
+        if (n%10==n){
+            if (n%10==0){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        if (n%10==0){
+            return 1+zero(n/10);
+        }
+        else{
+            return zero(n/10);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        int n= in.nextInt();
+        System.out.println(zero(n));
+    }
+}
+
+
+// sum
+
+import java.util.*;
+
+class Main {
+    public static int sum(int n){
+        if (n==0){
+            return 0;
+        }
+        else{
+            return n%10+sum(n/10);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System . in );
+        int n= in.nextInt();
+        System.out.println(sum(n));
+    }
+}
+
+// divisors
+
+import java.util.*;
+
+class Main {
+    public static void div(int n, int i){
+        if (i>n){
+            return;
+        }
+        if (n%i==0){
+            System.out.print(i);
+            div(n,i+1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System . in );
+        int n= in.nextInt();
+        // System.out.println(div(n));
+        div(n,1);
+    }
+}
